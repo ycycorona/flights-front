@@ -37,7 +37,22 @@ export const constantRouterMap = [
       component: () => import('@/views/dashboard/index')
     }]
   },
-
+  {
+    path: '/system-manage',
+    component: Layout,
+    redirect: '/system-manage/user',
+    name: 'SystemManage',
+    alwaysShow: true,
+    meta: { title: '系统管理', icon: 'system' },
+    children: [
+      {
+        path: 'user',
+        name: 'UserManage',
+        component: () => import('@/views/system_manage/user_manage'),
+        meta: { title: '用户管理', icon: 'user' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
